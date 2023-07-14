@@ -14,7 +14,7 @@ async function dbConected() {
     await connect(config.uri as string, { autoIndex: true }).then(() => {
       console.log('🛢️ Database is Connected Successfully');
       server = app.listen(config.port, () => {
-        console.log(`Cowhut server litening on port ${config.port}`);
+        console.log(`bookstore server litening on port ${config.port}`);
       });
     });
   } catch (error) {
