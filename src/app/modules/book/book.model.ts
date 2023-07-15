@@ -1,5 +1,23 @@
 import { Schema, model } from 'mongoose';
-import { BookModel, IBook } from './book.interface';
+import { BookModel, IBook, IReviews } from './book.interface';
+const reviewSchema = new Schema<IReviews>({
+  avatar: {
+    type: String,
+    required: true,
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  date: {
+    type: String,
+    required: true,
+  },
+  review: {
+    type: String,
+    required: true,
+  },
+});
 
 const cowSchema = new Schema<IBook, BookModel>(
   {
@@ -22,13 +40,11 @@ const cowSchema = new Schema<IBook, BookModel>(
     wishList: {
       type: [String],
     },
-    reviews: {
-      type: [String],
-    },
+    reviews: [reviewSchema],
     thumnail: {
       type: String,
       required: true,
-    }
+    },
   },
   {
     toJSON: {

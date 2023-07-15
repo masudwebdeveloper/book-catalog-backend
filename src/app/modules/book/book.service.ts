@@ -91,16 +91,16 @@ const getBook = async (id: string): Promise<IBook | null> => {
   return result;
 };
 
-// const updateCow = async (
-//   id: string,
-//   payload: Partial<ICow>
-// ): Promise<ICow | null> => {
-//   const { ...updateData } = payload;
-//   const result = await Cow.findOneAndUpdate({ _id: id }, updateData, {
-//     new: true,
-//   });
-//   return result;
-// };
+const updateBook = async (
+  id: string,
+  payload: Partial<IBook>
+): Promise<IBook | null> => {
+  const { ...updateData } = payload;
+  const result = await Book.findOneAndUpdate({ _id: id }, updateData, {
+    new: true,
+  });
+  return result;
+};
 
 const deleteBook = async (id: string): Promise<IBook | null> => {
   const result = await Book.findByIdAndDelete(id);
@@ -111,5 +111,6 @@ export const BookService = {
   createBook,
   getBooks,
   getBook,
-  deleteBook
+  deleteBook,
+  updateBook,
 };

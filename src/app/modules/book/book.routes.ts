@@ -13,7 +13,13 @@ router.post(
 
 router.get('/:id', BookController.getBook);
 
-router.delete('/:id', BookController.deleteBook)
+router.delete('/:id', BookController.deleteBook);
+
+router.patch(
+  '/:id',
+  validateReqest(BookValidation.updateBookZodSchema),
+  BookController.updateBook
+);
 
 router.get('/', BookController.getBooks);
 
