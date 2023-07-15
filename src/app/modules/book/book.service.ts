@@ -86,10 +86,10 @@ const getBooks = async (
   };
 };
 
-// const getCow = async (id: string): Promise<ICow | null> => {
-//   const result = await Cow.findById(id).populate('seller');
-//   return result;
-// };
+const getBook = async (id: string): Promise<IBook | null> => {
+  const result = await Book.findById(id);
+  return result;
+};
 
 // const updateCow = async (
 //   id: string,
@@ -110,4 +110,5 @@ const getBooks = async (
 export const BookService = {
   createBook,
   getBooks,
+  getBook,
 };

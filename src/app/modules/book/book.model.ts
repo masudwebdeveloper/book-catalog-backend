@@ -25,6 +25,10 @@ const cowSchema = new Schema<IBook, BookModel>(
     reviews: {
       type: [String],
     },
+    thumnail: {
+      type: String,
+      required: true,
+    }
   },
   {
     toJSON: {

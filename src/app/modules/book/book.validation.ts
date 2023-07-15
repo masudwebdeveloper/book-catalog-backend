@@ -6,8 +6,9 @@ const createBookZodSchema = z.object({
     author: z.string({ required_error: 'title is required' }),
     publication: z.string({ required_error: 'title is required' }),
     genre: z.string({ required_error: 'title is required' }),
-    wishList: z.array(z.string()),
-    reviews: z.array(z.string()),
+    thumnail: z.string({required_error: 'thumnailis required'}),
+    wishList: z.array(z.string()).optional(),
+    reviews: z.array(z.string()).optional(),
   }),
 });
 

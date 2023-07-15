@@ -7,6 +7,7 @@ export type IBook = {
   genre: string;
   reviews?: string[];
   wishList?: string[];
+  thumnail: string;
 };
 
 export type IFilters = {
