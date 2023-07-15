@@ -102,13 +102,14 @@ const getBook = async (id: string): Promise<IBook | null> => {
 //   return result;
 // };
 
-// const deleteCow = async (id: string): Promise<ICow | null> => {
-//   const result = await Cow.findByIdAndDelete(id).populate('seller');
-//   return result;
-// };
+const deleteBook = async (id: string): Promise<IBook | null> => {
+  const result = await Book.findByIdAndDelete(id);
+  return result;
+};
 
 export const BookService = {
   createBook,
   getBooks,
   getBook,
+  deleteBook
 };

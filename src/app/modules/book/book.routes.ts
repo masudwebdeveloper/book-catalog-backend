@@ -13,6 +13,8 @@ router.post(
 
 router.get('/:id', BookController.getBook);
 
+router.delete('/:id', BookController.deleteBook)
+
 router.get('/', BookController.getBooks);
 
 export const BookRoutes = router;
