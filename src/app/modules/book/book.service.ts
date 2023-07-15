@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { IPaginationOptions } from '../../../interface/paginationOption';
-import { IBook, IFilters } from './book.interface';
+import { IBook, IFilters, IReviews } from './book.interface';
 import { Book } from './book.model';
 // import { IPaginationOptions } from '../../../interface/paginationOption';
 import { IGenericResponse } from '../../../interface/common';
@@ -101,6 +101,21 @@ const updateBook = async (
   });
   return result;
 };
+const updateBookReview = async (
+  id: string,
+  payload: IReviews
+): Promise<IBook | null> => {
+  const { ...updateData } = payload;
+  
+  const result = await Book.findOneAndUpdate(
+    { _id: id },
+    { $push: { reviews: updateData } },
+    {
+      new: true,
+    }
+  );
+  return result;
+};
 
 const deleteBook = async (id: string): Promise<IBook | null> => {
   const result = await Book.findByIdAndDelete(id);
@@ -113,4 +128,5 @@ export const BookService = {
   getBook,
   deleteBook,
   updateBook,
+  updateBookReview,
 };

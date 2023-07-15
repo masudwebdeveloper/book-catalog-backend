@@ -28,8 +28,20 @@ const updateBookZodSchema = z.object({
     reviews: z.array(reviewSchema).optional(),
   }),
 });
+const updateBookReviewZodSchema = z.object({
+  body: z.object({
+    title: z.string().optional(),
+    author: z.string().optional(),
+    publication: z.string().optional(),
+    genre: z.string().optional(),
+    thumbnail: z.string().optional(),
+    wishList: z.array(z.string()).optional(),
+    reviews: z.array(reviewSchema).optional(),
+  }),
+});
 
 export const BookValidation = {
   createBookZodSchema,
   updateBookZodSchema,
+  updateBookReviewZodSchema
 };

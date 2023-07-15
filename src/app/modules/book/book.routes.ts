@@ -21,6 +21,12 @@ router.patch(
   BookController.updateBook
 );
 
+router.post(
+  '/:id',
+  validateReqest(BookValidation.updateBookReviewZodSchema),
+  BookController.updateBookReview
+);
+
 router.get('/', BookController.getBooks);
 
 export const BookRoutes = router;

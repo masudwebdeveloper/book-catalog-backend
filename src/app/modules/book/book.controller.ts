@@ -50,11 +50,24 @@ const getBook = catchAsync(async (req: Request, res: Response) => {
 const updateBook = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params;
   const updateData = req.body;
+  console.log(updateData);
+  
   const result = await BookService.updateBook(id, updateData);
   sendResponse<IBook>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Book update is successfully',
+    data: result,
+  });
+});
+const updateBookReview = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const updateData = req.body;
+  const result = await BookService.updateBookReview(id, updateData);
+  sendResponse<IBook>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Book review added successfully',
     data: result,
   });
 });
@@ -76,4 +89,5 @@ export const BookController = {
   getBook,
   deleteBook,
   updateBook,
+  updateBookReview
 };
