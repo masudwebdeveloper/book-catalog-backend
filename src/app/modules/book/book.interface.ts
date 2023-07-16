@@ -13,6 +13,7 @@ export type IBook = {
   reviews?: IReviews[];
   wishList?: string[];
   thumnail: string;
+  email: string;
 };
 
 export type IFilters = {

@@ -50,8 +50,7 @@ const getBook = catchAsync(async (req: Request, res: Response) => {
 const updateBook = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params;
   const updateData = req.body;
-  console.log(updateData);
-  
+
   const result = await BookService.updateBook(id, updateData);
   sendResponse<IBook>(res, {
     statusCode: httpStatus.OK,
@@ -68,6 +67,17 @@ const updateBookReview = catchAsync(async (req: Request, res: Response) => {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Book review added successfully',
+    data: result,
+  });
+});
+const addBookWishlist = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const updateData = req.body;
+  const result = await BookService.addBookWishlist(id, updateData);
+  sendResponse<IBook>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'add Book wishlist successfully',
     data: result,
   });
 });
@@ -89,5 +99,6 @@ export const BookController = {
   getBook,
   deleteBook,
   updateBook,
-  updateBookReview
+  updateBookReview,
+  addBookWishlist,
 };

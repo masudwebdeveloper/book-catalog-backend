@@ -27,6 +27,11 @@ router.post(
   BookController.updateBookReview
 );
 
+router.post(
+  '/:id',
+  BookController.addBookWishlist
+);
+
 router.get('/', BookController.getBooks);
 
 export const BookRoutes = router;

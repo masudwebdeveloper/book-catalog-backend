@@ -12,6 +12,7 @@ const createBookZodSchema = z.object({
     publication: z.string({ required_error: 'title is required' }),
     genre: z.string({ required_error: 'title is required' }),
     thumnail: z.string({ required_error: 'thumnailis required' }),
+    email: z.string({ required_error: 'email is required' }).email(),
     wishList: z.array(z.string()).optional(),
     reviews: z.array(reviewSchema).optional(),
   }),
@@ -24,6 +25,7 @@ const updateBookZodSchema = z.object({
     publication: z.string().optional(),
     genre: z.string().optional(),
     thumbnail: z.string().optional(),
+    email: z.string().email().optional(),
     wishList: z.array(z.string()).optional(),
     reviews: z.array(reviewSchema).optional(),
   }),
@@ -35,6 +37,7 @@ const updateBookReviewZodSchema = z.object({
     publication: z.string().optional(),
     genre: z.string().optional(),
     thumbnail: z.string().optional(),
+    email: z.string().email().optional(),
     wishList: z.array(z.string()).optional(),
     reviews: z.array(reviewSchema).optional(),
   }),
@@ -43,5 +46,5 @@ const updateBookReviewZodSchema = z.object({
 export const BookValidation = {
   createBookZodSchema,
   updateBookZodSchema,
-  updateBookReviewZodSchema
+  updateBookReviewZodSchema,
 };

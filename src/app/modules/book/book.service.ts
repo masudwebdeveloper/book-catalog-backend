@@ -38,21 +38,6 @@ const getBooks = async (
     });
   }
 
-  // if (minPrice || maxPrice) {
-  //   const priceCondition: any = {};
-
-  //   if (minPrice) {
-  //     priceCondition.$gte = minPrice;
-  //   }
-  //   if (maxPrice) {
-  //     priceCondition.$lte = maxPrice;
-  //   }
-
-  //   andCondition.push({
-  //     price: priceCondition,
-  //   });
-  // }
-
   if (Object.keys(filterData).length) {
     andCondition.push({
       $and: Object.entries(filterData).map(([field, value]) => ({
@@ -106,10 +91,23 @@ const updateBookReview = async (
   payload: IReviews
 ): Promise<IBook | null> => {
   const { ...updateData } = payload;
-  
+
   const result = await Book.findOneAndUpdate(
     { _id: id },
     { $push: { reviews: updateData } },
+    {
+      new: true,
+    }
+  );
+  return result;
+};
+const addBookWishlist = async (
+  id: string,
+  payload: string
+): Promise<IBook | null> => {
+  const result = await Book.findOneAndUpdate(
+    { _id: id },
+    { $push: { wishList: payload } },
     {
       new: true,
     }
@@ -129,4 +127,5 @@ export const BookService = {
   deleteBook,
   updateBook,
   updateBookReview,
+  addBookWishlist,
 };
