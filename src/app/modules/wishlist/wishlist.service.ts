@@ -18,7 +18,13 @@ const getWishlists = async (email: string): Promise<IWishlist[]> => {
   return result;
 };
 
+const deleteWishlist = async (id: string): Promise<IWishlist | null> => {
+  const result = await Wishlist.findOneAndDelete({ _id: id }).populate('book');
+  return result;
+};
+
 export const WishlistService = {
   addWishlist,
   getWishlists,
+  deleteWishlist,
 };

@@ -31,7 +31,21 @@ const getWishlists: RequestHandler = catchAsync(
   }
 );
 
+const deleteWishlist: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const result = await WishlistService.deleteWishlist(id);
+    sendResponse<IWishlist>(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'wishlist book deleted successfully',
+      data: result,
+    });
+  }
+);
+
 export const WishlistController = {
   addWishlist,
   getWishlists,
+  deleteWishlist,
 };
