@@ -9,8 +9,7 @@ import { bookSearchableFields } from './book.constants';
 import { SortOrder } from 'mongoose';
 
 const createBook = async (book: IBook): Promise<IBook | null> => {
-  if (!book.wishList && !book.reviews) {
-    book.wishList = [];
+  if (!book.reviews) {
     book.reviews = [];
   }
   const result = await Book.create(book);

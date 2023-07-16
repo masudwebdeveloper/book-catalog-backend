@@ -37,9 +37,6 @@ const cowSchema = new Schema<IBook, BookModel>(
       type: String,
       required: true,
     },
-    wishList: {
-      type: [String],
-    },
     reviews: [reviewSchema],
     thumnail: {
       type: String,

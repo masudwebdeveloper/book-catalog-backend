@@ -11,7 +11,6 @@ export type IBook = {
   publication: string;
   genre: string;
   reviews?: IReviews[];
-  wishList?: string[];
   thumnail: string;
   email: string;
 };

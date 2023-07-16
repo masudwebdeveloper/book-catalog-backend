@@ -13,7 +13,6 @@ const createBookZodSchema = z.object({
     genre: z.string({ required_error: 'title is required' }),
     thumnail: z.string({ required_error: 'thumnailis required' }),
     email: z.string({ required_error: 'email is required' }).email(),
-    wishList: z.array(z.string()).optional(),
     reviews: z.array(reviewSchema).optional(),
   }),
 });
@@ -26,7 +25,6 @@ const updateBookZodSchema = z.object({
     genre: z.string().optional(),
     thumbnail: z.string().optional(),
     email: z.string().email().optional(),
-    wishList: z.array(z.string()).optional(),
     reviews: z.array(reviewSchema).optional(),
   }),
 });
@@ -38,7 +36,6 @@ const updateBookReviewZodSchema = z.object({
     genre: z.string().optional(),
     thumbnail: z.string().optional(),
     email: z.string().email().optional(),
-    wishList: z.array(z.string()).optional(),
     reviews: z.array(reviewSchema).optional(),
   }),
 });
