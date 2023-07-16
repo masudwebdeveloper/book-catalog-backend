@@ -3,6 +3,7 @@ import { IBook } from '../book/book.interface';
 
 export type IWishlist = {
   email: string;
+  status: string;
   book: Types.ObjectId | IBook;
 };
 

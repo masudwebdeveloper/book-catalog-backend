@@ -11,6 +11,7 @@ router.post(
   WishlistController.addWishlist
 );
 
+router.patch('/:id', WishlistController.updateWishlist);
 router.get('/:email', WishlistController.getWishlists);
 router.delete('/:id', WishlistController.deleteWishlist);
 

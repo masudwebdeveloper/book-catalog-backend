@@ -48,7 +48,7 @@ const cowSchema = new Schema<IBook, BookModel>(
     email: {
       type: String,
       required: true,
-    },
+    }
   },
   {
     toJSON: {

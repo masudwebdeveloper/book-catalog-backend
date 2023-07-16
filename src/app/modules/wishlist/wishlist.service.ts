@@ -23,8 +23,19 @@ const deleteWishlist = async (id: string): Promise<IWishlist | null> => {
   return result;
 };
 
+const updateWishlist = async (
+  id: string,
+  payload: Partial<IWishlist>
+): Promise<IWishlist | null> => {
+  const result = await Wishlist.findOneAndUpdate({ _id: id }, payload, {
+    new: true,
+  }).populate('book');
+  return result;
+};
+
 export const WishlistService = {
   addWishlist,
   getWishlists,
   deleteWishlist,
+  updateWishlist,
 };

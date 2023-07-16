@@ -7,6 +7,10 @@ const wishlistSchema = new Schema<IWishlist, WishlistModel>(
       type: String,
       required: true,
     },
+    status: {
+      type: String,
+      required: true,
+    },
     book: {
       type: Schema.Types.ObjectId,
       ref: 'Book',
