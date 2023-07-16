@@ -13,6 +13,12 @@ const addWishlist = async (payload: IWishlist): Promise<IWishlist> => {
   return result;
 };
 
+const getWishlists = async (email: string): Promise<IWishlist[]> => {
+  const result = await Wishlist.find({ email }).populate('book');
+  return result;
+};
+
 export const WishlistService = {
   addWishlist,
+  getWishlists,
 };

@@ -11,4 +11,6 @@ router.post(
   WishlistController.addWishlist
 );
 
+router.get('/:email', WishlistController.getWishlists);
+
 export const WishlistRoutes = router;
